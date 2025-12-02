@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoffeeHouse – Moderní kavárna</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!--  NAVIGACE -->
+<header id="home">
+    <nav class="navbar">
+        <div class="logo">CoffeeHouse</div>
+        <div class="nav-links">
+            <a href="#home">Úvod</a>
+            <a href="#about">O nás</a>
+            <a href="#menu">Menu</a>
+            <a href="#gallery">Galerie</a>
+            <a href="#contact">Kontakt</a>
+        </div>
+    </nav>
+
+    <!--  HERO ÚVOD -->
+    <div class="hero">
+        <h1>Moderní kavárna s atmosférou</h1>
+        <p>Poctivá káva • Útulné prostředí • Lahodné dezerty</p>
+        <a class="btn" href="#menu">Podívat se na menu</a>
+    </div>
+</header>
+
+<!--  O NÁS -->
+<section id="about">
+    <h2>O nás</h2>
+    <p>
+        CoffeeHouse je moderní lokální kavárna zaměřená na kvalitní kávu,
+        domácí dezerty a příjemnou atmosféru. Naše filozofie je jednoduchá:
+        dobře se posaď, vypij skvělou kávu a na chvíli zpomal.
+    </p>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+    <h2>Menu</h2>
+
+    <div id="menu-items" class="menu-container">
+        <p class="loading">Načítám nabídku…</p>
+    </div>
+</section>
+
+<!-- GALERIE -->
+<section id="gallery">
+    <h2>Galerie</h2>
+    
+    <div class="gallery-grid">
+        <img src="assets/img/gallery1.jpg" alt="">
+        <img src="assets/img/gallery2.jpg" alt="">
+        <img src="assets/img/gallery3.jpg" alt="">
+        <img src="assets/img/gallery4.jpg" alt="">
+    </div>
+</section>
+
+<!-- KONTAKT -->
+<section id="contact">
+    <h2>Kontakt</h2>
+
+    <div class="contact-info">
+        <p><strong>Adresa:</strong> Lumlaňská 70, Praha</p>
+        <p><strong>Email:</strong> info@coffeehouse.cz</p>
+        <p><strong>Otevírací doba:</strong> Po–Ne 8:00–18:00</p>
+    </div>
+
+    <!-- Formulář -->
+    <form id="contactForm">
+        <input type="text" name="name" placeholder="Jméno" required>
+        <input type="email" name="email" placeholder="E-mail" required>
+        <textarea name="message" placeholder="Zpráva" required></textarea>
+        <button type="submit">Odeslat</button>
+    </form>
+
+    <p id="formMessage" class="form-msg"></p>
+</section>
+
+<!--  PATIČKA -->
+<footer>
+    <p>&copy; 2025 CoffeeHouse</p>
+</footer>
+
+<!-- JS -->
+<script src="script.js"></script>
+</body>
+</html>
