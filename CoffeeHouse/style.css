@@ -1,0 +1,160 @@
+/* ZÁKLADNÍ RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: #f7f4ef;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* HLAVIČKA + NAV */
+header {
+    background: #3e2f23;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+nav a:hover {
+    color: #ffcf75;
+}
+
+/* HERO SEKCE */
+.hero {
+    background: url("https://cdn.pixabay.com/photo/2016/11/21/16/28/caffeine-1846280_1280.jpg") center/cover no-repeat;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.6);
+}
+
+.hero h1 {
+    font-size: 48px;
+    font-weight: 600;
+}
+
+/* MENU – DYNAMI  */
+#menu {
+    margin: 50px auto;
+    max-width: 900px;
+    text-align: center;
+}
+
+#menu h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #3e2f23;
+}
+
+.menu-section {
+    margin-bottom: 40px;
+}
+
+.menu-section h3 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #503825;
+}
+
+.menu-item {
+    background: white;
+    margin: 10px auto;
+    padding: 15px 20px;
+    max-width: 600px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    border-left: 4px solid #c49a6c;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* KONTAKTNÍ FORMULÁŘ */
+#contact {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+#contact h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #3e2f23;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+form textarea {
+    height: 120px;
+    resize: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    background: #3e2f23;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #5b4332;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    margin: 40px 0 20px;
+    color: #4b3a2f;
+}
+
+/* RESPONSIVE – MOBIL */
+@media (max-width: 600px) {
+    .menu-item {
+        flex-direction: column;
+        gap: 5px;
+        text-align: left;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+}
+
