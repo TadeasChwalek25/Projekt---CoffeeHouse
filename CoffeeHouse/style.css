@@ -145,6 +145,89 @@ footer {
     color: #4b3a2f;
 }
 
+/* Galerie */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px; 
+    margin-top: 20px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 180px;             
+    object-fit: cover;         
+    border-radius: 8px;       
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05); 
+}
+
+
+/* Modal pozadí */
+.modal {
+    display: none;              
+    position: fixed;
+    z-index: 1000;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); 
+    backdrop-filter: blur(3px);
+}
+
+/* Obrázek uvnitř */
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 10px;
+    animation: zoomIn 0.2s ease;
+}
+
+/* Zavírací tlačítko */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.close:hover {
+    color: #ddd;
+}
+
+/* Animace zvětšení */
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to   { transform: scale(1);   opacity: 1; }
+}
+
+#menu-items p {
+    background: #f8f8f8;
+    padding: 12px 15px;
+    border-radius: 8px;
+    transition: 0.2s;
+    margin: 8px 0;
+}
+
+#menu-items p:hover {
+    transform: scale(1.03);
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+
 /* RESPONSIVE – MOBIL */
 @media (max-width: 600px) {
     .menu-item {
@@ -157,4 +240,19 @@ footer {
         font-size: 32px;
     }
 }
+
+/* Mobilní zobrazení  */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Extra malé telefony  */
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 
