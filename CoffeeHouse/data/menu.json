@@ -2,18 +2,18 @@
     "coffee": [
         { "name": "Espresso", "price": 45 },
         { "name": "Doppio", "price": 55 },
-        { "name": "Americano", "price": 50 },
+        { "name": "Americano", "price": 55 },
         { "name": "Cappuccino", "price": 55 },
-        { "name": "Caffè Latte", "price": 60 },
+        { "name": "Caffè Latte", "price": 65 },
         { "name": "Flat White", "price": 65 },
         { "name": "Mocha", "price": 65 }
     ],
 
     "desserts": [
-        { "name": "Cheesecake", "price": 75 },
-        { "name": "Tiramisu", "price": 70 },
+        { "name": "Cheesecake", "price": 80 },
+        { "name": "Tiramisu", "price": 75 },
         { "name": "Makový závin", "price": 65 },
-        { "name": "Čokoládový dort", "price": 80 },
+        { "name": "Čokoládový dort", "price": 90 },
         { "name": "Lívance s ovocem", "price": 85 }
     ]
 }
