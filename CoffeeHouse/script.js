@@ -1,43 +1,45 @@
-// 1) Načtení menu přes AJAX 
+/* ---------------------------------------------------
+   1) Načtení menu
+--------------------------------------------------- */
 
-fetch("./data/menu.json")
-    .then(response => {
-        if (!response.ok) {
-            throw new Error("Chyba při načítání menu.json");
-        }
-        return response.json();
-    })
-    .then(data => {
-        const menuDiv = document.getElementById("menu-items");
-        let html = "";
+const menuDiv = document.getElementById("menu-items");
 
-        // Kávy
-        html += `<h3>Kávy</h3>`;
-        data.coffee.forEach(item => {
-            html += `<p><strong>${item.name}</strong> — ${item.price} Kč</p>`;
-        });
+function loadMenu() {
+    fetch("./data/menu.json")
+        .then(res => {
+            if (!res.ok) throw new Error("Chyba při načítání menu.json");
+            return res.json();
+        })
+        .then(data => renderMenu(data))
+        .catch(() => menuDiv.innerHTML = "<p class='error'>Nepodařilo se načíst menu.</p>");
+}
 
-        // Dezerty
-        html += `<h3>Dezerty</h3>`;
-        data.desserts.forEach(item => {
-            html += `<p><strong>${item.name}</strong> — ${item.price} Kč</p>`;
-        });
+function renderMenu(data) {
+    let html = `
+        <h3>Kávy</h3>
+        ${data.coffee.map(item => `<p><strong>${item.name}</strong> — ${item.price} Kč</p>`).join("")}
 
-        menuDiv.innerHTML = html;
-    })
-    .catch(error => {
-        document.getElementById("menu-items").innerHTML =
-            "<p class='error'>Nepodařilo se načíst menu.</p>";
-        console.error(error);
-    });
+        <h3>Dezerty</h3>
+        ${data.desserts.map(item => `<p><strong>${item.name}</strong> — ${item.price} Kč</p>`).join("")}
+    `;
 
+    menuDiv.style.opacity = "0";
+    menuDiv.innerHTML = html;
 
-// 2) Odeslání kontaktního formuláře přes AJAX
+    setTimeout(() => menuDiv.style.opacity = "1", 50);
+}
+
+loadMenu();
+
+/* ---------------------------------------------------
+   2) AJAX kontakt form
+--------------------------------------------------- */
 
 const form = document.getElementById("contactForm");
+const msg = document.getElementById("formMessage");
 
-form.addEventListener("submit", function (event) {
-    event.preventDefault(); 
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
 
     const formData = new FormData(form);
 
@@ -45,59 +47,63 @@ form.addEventListener("submit", function (event) {
         method: "POST",
         body: formData
     })
-    .then(response => response.text())
+    .then(res => res.text())
     .then(text => {
-        document.getElementById("formMessage").textContent = text;
-        form.reset(); // vyčištění formuláře
+        msg.textContent = text;
+        msg.style.color = "#28a745";
+        form.reset();
     })
     .catch(() => {
-        document.getElementById("formMessage").textContent =
-            "Chyba při odesílání zprávy.";
+        msg.textContent = "Chyba při odesílání.";
+        msg.style.color = "#d32f2f";
     });
 });
 
+/* ---------------------------------------------------
+   3) Smooth scroll
+--------------------------------------------------- */
 
-// 3) Smooth scroll pro navigaci 
+document.querySelectorAll("a[href^='#']").forEach(link => {
+    link.addEventListener("click", (e) => {
+        const target = document.querySelector(link.getAttribute("href"));
+        if (!target) return;
 
-document.querySelectorAll("a[href^='#']").forEach(anchor => {
-    anchor.addEventListener("click", function (e) {
         e.preventDefault();
-
-        const target = document.querySelector(this.getAttribute("href"));
-        if (target) {
-            target.scrollIntoView({
-                behavior: "smooth"
-            });
-        }
+        target.scrollIntoView({ behavior: "smooth" });
     });
 });
 
-
-
-// 4) Modal galerie
+/* ---------------------------------------------------
+   4) Modal galerie
+--------------------------------------------------- */
 
 const modal = document.getElementById("imgModal");
 const modalImg = document.getElementById("modalImg");
 const closeBtn = document.querySelector(".close");
 
-// Najdi všechny obrázky v galerii
 document.querySelectorAll(".gallery-grid img").forEach(img => {
     img.addEventListener("click", () => {
         modal.style.display = "block";
-        modalImg.src = img.src; // nastaví obrázek
+        modalImg.src = img.src;
     });
 });
 
-// Klik na X zavře modal
-closeBtn.addEventListener("click", () => {
-    modal.style.display = "none";
+closeBtn.addEventListener("click", () => modal.style.display = "none");
+
+modal.addEventListener("click", (e) => {
+    if (e.target === modal) modal.style.display = "none";
 });
 
-// Klik mimo obrázek také zavře modal
-modal.addEventListener("click", (e) => {
-    if (e.target === modal) {
-        modal.style.display = "none";
-    }
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") modal.style.display = "none";
 });
+
+
+document.querySelector("a[href='#home']").addEventListener("click", (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+
 
 
