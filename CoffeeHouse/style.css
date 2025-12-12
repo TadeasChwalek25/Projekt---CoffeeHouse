@@ -1,4 +1,4 @@
-/* ZÁKLADNÍ RESET */
+/* RESET */
 * {
     margin: 0;
     padding: 0;
@@ -12,53 +12,124 @@ body {
     line-height: 1.6;
 }
 
-/* HLAVIČKA + NAV */
+/* NAVIGAČNÍ HLAVIČKA */
 header {
     background: #3e2f23;
     color: white;
-    padding: 20px 0;
-    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     box-shadow: 0 3px 10px rgba(0,0,0,0.2);
 }
 
-nav ul {
-    list-style: none;
+.navbar {
     display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin-top: 10px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.2s;
-}
-
-nav a:hover {
+.logo {
+    font-size: 26px;
+    font-weight: 600;
     color: #ffcf75;
 }
 
-/* HERO SEKCE */
+.nav-links a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.2s;
+    opacity: 0.9;
+}
+
+.nav-links a:hover {
+    color: #ffcf75;
+    opacity: 1;
+}
+
+/* HERO */
 .hero {
     background: url("https://cdn.pixabay.com/photo/2016/11/21/16/28/caffeine-1846280_1280.jpg") center/cover no-repeat;
-    height: 400px;
+    height: 450px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     color: white;
+    text-align: center;
+    position: relative;
     text-shadow: 0 2px 5px rgba(0,0,0,0.6);
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.45);
+}
+
+.hero * {
+    position: relative;
+    z-index: 2;
 }
 
 .hero h1 {
     font-size: 48px;
     font-weight: 600;
 }
+.hero p {
+    font-size: 20px;
+    margin-top: 10px;
+}
 
-/* MENU – DYNAMI  */
-#menu {
+/* HERO BUTTON */
+.btn {
+    display: inline-block;
+    background: #ffcf75;
+    color: #3e2f23;
+    padding: 12px 22px;
+    border-radius: 30px;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #ffbd46;
+    transform: scale(1.05);
+}
+
+/* O NÁS */
+#about {
+    text-align: center;
     margin: 50px auto;
+    padding: 0 20px;
+}
+
+#about h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: #3e2f23;
+}
+
+#about p {
+    max-width: 750px;
+    margin: 0 auto;
+    line-height: 1.9;
+    font-size: 18px;
+    color: #4b3a2f;
+}
+
+/* MENU */
+#menu {
+    margin: 60px auto;
     max-width: 900px;
     text-align: center;
 }
@@ -91,10 +162,103 @@ nav a:hover {
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-/* KONTAKTNÍ FORMULÁŘ */
+#menu-items p {
+    background: #f8f8f8;
+    padding: 12px 15px;
+    border-radius: 8px;
+    transition: 0.2s;
+    margin: 8px 0;
+}
+
+#menu-items p:hover {
+    transform: scale(1.03);
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* GALERIE GRID */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+}
+
+/* GALERIE – MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(3px);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 10px;
+    animation: zoomIn 0.2s ease;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.close:hover {
+    color: #ddd;
+}
+
+/* Animace */
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.6s forwards ease-out;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* KONTAKT */
 #contact {
     max-width: 600px;
-    margin: 40px auto;
+    margin: 60px auto;
     padding: 25px;
     background: white;
     border-radius: 10px;
@@ -107,6 +271,11 @@ nav a:hover {
     color: #3e2f23;
 }
 
+.contact-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 form input,
 form textarea {
     width: 100%;
@@ -115,6 +284,14 @@ form textarea {
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 16px;
+    transition: 0.2s;
+}
+
+form input:focus,
+form textarea:focus {
+    border-color: #c49a6c;
+    outline: none;
+    box-shadow: 0 0 8px rgba(196,154,108,0.3);
 }
 
 form textarea {
@@ -138,97 +315,35 @@ button:hover {
     background: #5b4332;
 }
 
+#formMessage {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 600;
+}
+
 /* FOOTER */
 footer {
     text-align: center;
-    margin: 40px 0 20px;
+    margin: 50px 0 20px;
     color: #4b3a2f;
 }
 
-/* Galerie */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px; 
-    margin-top: 20px;
+/* RESPONSIVE ÚPRAVY */
+@media (max-width: 900px) {
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
-.gallery-grid img {
-    width: 100%;
-    height: 180px;             
-    object-fit: cover;         
-    border-radius: 8px;       
-    cursor: pointer;
-    transition: transform 0.2s ease;
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .navbar {
+        padding: 15px 20px;
+    }
 }
 
-.gallery-grid img:hover {
-    transform: scale(1.05); 
-}
-
-
-/* Modal pozadí */
-.modal {
-    display: none;              
-    position: fixed;
-    z-index: 1000;
-    padding-top: 60px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); 
-    backdrop-filter: blur(3px);
-}
-
-/* Obrázek uvnitř */
-.modal-content {
-    margin: auto;
-    display: block;
-    max-width: 90%;
-    max-height: 80vh;
-    border-radius: 10px;
-    animation: zoomIn 0.2s ease;
-}
-
-/* Zavírací tlačítko */
-.close {
-    position: absolute;
-    top: 20px;
-    right: 35px;
-    color: white;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.close:hover {
-    color: #ddd;
-}
-
-/* Animace zvětšení */
-@keyframes zoomIn {
-    from { transform: scale(0.8); opacity: 0; }
-    to   { transform: scale(1);   opacity: 1; }
-}
-
-#menu-items p {
-    background: #f8f8f8;
-    padding: 12px 15px;
-    border-radius: 8px;
-    transition: 0.2s;
-    margin: 8px 0;
-}
-
-#menu-items p:hover {
-    transform: scale(1.03);
-    background: #fff;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-
-/* RESPONSIVE – MOBIL */
 @media (max-width: 600px) {
     .menu-item {
         flex-direction: column;
@@ -239,32 +354,11 @@ footer {
     .hero h1 {
         font-size: 32px;
     }
-}
 
-/* Mobilní zobrazení  */
-@media (max-width: 768px) {
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* Extra malé telefony  */
-@media (max-width: 480px) {
     .gallery-grid {
         grid-template-columns: 1fr;
     }
 }
 
-#about {
-    text-align: center;
-    margin: 40px 0 20px;
-    color: #4b3a2f;
-}
-
-#gallery h2 {
-    text-align: center;
-    margin: 40px 0 20px;
-    color: #4b3a2f;
-}
 
 
