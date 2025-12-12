@@ -4,14 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CoffeeHouse – Moderní kavárna</title>
-
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!--  NAVIGACE -->
+<!-- NAVIGACE -->
 <header id="home">
     <nav class="navbar">
         <div class="logo">CoffeeHouse</div>
@@ -23,29 +21,27 @@
             <a href="#contact">Kontakt</a>
         </div>
     </nav>
-
-    <!--  HERO ÚVOD -->
-    <div class="hero">
-        <h1>Moderní kavárna s atmosférou</h1>
-        <p>Poctivá káva • Útulné prostředí • Lahodné dezerty</p>
-        <a class="btn" href="#menu">Podívat se na menu</a>
-    </div>
 </header>
 
-<!--  O NÁS -->
+<!-- HERO ÚVOD (mimo header – už se nezasekne!) -->
+<div class="hero">
+    <h1>Moderní kavárna s atmosférou</h1>
+    <p>Poctivá káva • Útulné prostředí • Lahodné dezerty</p>
+    <a class="btn" href="#menu">Podívat se na menu</a>
+</div>
+
+<!-- O NÁS -->
 <section id="about">
     <h2>O nás</h2>
     <p>
         CoffeeHouse je moderní lokální koncept postavený na třech pilířích: kvalitní výběrová káva, poctivá domácí výroba a atmosféra, která inspiruje k zastavení a odpočinku.
-        Věříme, že skvělá káva není jen nápoj, ale zážitek. Proto dbáme na pečlivý výběr surovin, transparentní přístup a maximální péči v každém kroku – od pražení, přes přípravu, až po samotný servis.
-        Naším cílem je vytvořit místo, kde se hosté budou cítit přirozeně, příjemně a vždy vítaní.
+        Věříme, že skvělá káva není jen nápoj, ale zážitek. Proto dbáme na pečlivý výběr surovin a maximální péči při přípravě každého šálku.
     </p>
 </section>
 
 <!-- MENU -->
 <section id="menu">
     <h2>Menu</h2>
-
     <div id="menu-items" class="menu-container">
         <p class="loading">Načítám nabídku…</p>
     </div>
@@ -62,8 +58,9 @@
         <img src="https://cdn.pixabay.com/photo/2023/09/05/12/44/mug-8235059_1280.jpg" alt="">
     </div>
 </section>
+
 <section>
-        <div class="gallery-grid">
+    <div class="gallery-grid">
         <img src="https://cdn.pixabay.com/photo/2017/08/10/08/55/breakfast-2620176_1280.jpg" alt="">
         <img src="https://cdn.pixabay.com/photo/2017/04/25/08/02/coffee-beans-2258839_1280.jpg" alt="">
         <img src="https://cdn.pixabay.com/photo/2013/11/05/23/55/coffee-206142_1280.jpg" alt="">
@@ -71,13 +68,11 @@
     </div>
 </section>
 
-
 <!-- Modal -->
 <div id="imgModal" class="modal">
     <span class="close">&times;</span>
     <img class="modal-content" id="modalImg">
 </div>
-
 
 <!-- KONTAKT -->
 <section id="contact">
@@ -86,10 +81,9 @@
     <div class="contact-info">
         <p><strong>Adresa:</strong> Lumlaňská 70, Praha</p>
         <p><strong>Email:</strong> info@coffeehouse.com</p>
-        <p><strong>Otevírací doba:</strong> Po–Pa 9:30–20:00 So-Ne 10:00–17:30</p>
+        <p><strong>Otevírací doba:</strong> Po–Pa 9:30–20:00 • So–Ne 10:00–17:30</p>
     </div>
 
-    <!-- Formulář -->
     <form id="contactForm">
         <input type="text" name="name" placeholder="Jméno" required>
         <input type="email" name="email" placeholder="E-mail" required>
@@ -100,7 +94,7 @@
     <p id="formMessage" class="form-msg"></p>
 </section>
 
-<!--  FOOTER -->
+<!-- FOOTER -->
 <footer>
     <p>&copy; 2025 CoffeeHouse</p>
 </footer>
@@ -108,3 +102,5 @@
 <script src="script.js"></script>
 </body>
 </html>
+
+
