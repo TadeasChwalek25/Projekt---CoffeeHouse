@@ -198,6 +198,10 @@ header {
     transform: scale(1.05);
 }
 
+#gallery h2 {
+    text-align: center;
+}
+
 /* GALERIE – MODAL */
 .modal {
     display: none;
@@ -359,6 +363,7 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
 
 
 
