@@ -1,6 +1,4 @@
-/* ---------------------------------------------------
-   1) Načtení menu
---------------------------------------------------- */
+/* 1) Načtení menu */
 
 const menuDiv = document.getElementById("menu-items");
 
@@ -31,9 +29,7 @@ function renderMenu(data) {
 
 loadMenu();
 
-/* ---------------------------------------------------
-   2) AJAX kontakt form
---------------------------------------------------- */
+/*  2) AJAX kontakt form */
 
 const form = document.getElementById("contactForm");
 const msg = document.getElementById("formMessage");
@@ -59,9 +55,8 @@ form.addEventListener("submit", (e) => {
     });
 });
 
-/* ---------------------------------------------------
-   3) Smooth scroll
---------------------------------------------------- */
+/* 
+   3) Smooth scroll */
 
 document.querySelectorAll("a[href^='#']").forEach(link => {
     link.addEventListener("click", (e) => {
@@ -73,9 +68,7 @@ document.querySelectorAll("a[href^='#']").forEach(link => {
     });
 });
 
-/* ---------------------------------------------------
-   4) Modal galerie
---------------------------------------------------- */
+/*  4) Modal galerie */
 
 const modal = document.getElementById("imgModal");
 const modalImg = document.getElementById("modalImg");
@@ -103,6 +96,9 @@ document.querySelector("a[href='#home']").addEventListener("click", (e) => {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
+
+
 
 
 
